@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Editor</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #222; color: #fff; }
+    #game { display: grid; grid-template-columns: repeat(20, 20px); margin: 20px auto; width: 400px; }
+    .cell { width: 20px; height: 20px; border: 1px solid #555; }
+    /* блоки */
+    .grass { background: green; }
+    .stone { background: gray; }
+    .water { background: blue; }
+    .lava { background: red; }
+    .sand { background: khaki; }
+    .gold { background: gold; }
+    .tree { background: darkgreen; }
+    /* персонажі */
+    .hero { background: url('https://emojiapi.dev/api/v1/man_superhero/64.png') center/cover; }
+    .monster { background: url('https://emojiapi.dev/api/v1/ogre/64.png') center/cover; }
+    .cat { background: url('https://emojiapi.dev/api/v1/cat/64.png') center/cover; }
+    .robot { background: url('https://emojiapi.dev/api/v1/robot/64.png') center/cover; }
+    #toolbar { margin: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
+    button { margin: 5px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Онлайн редактор ігор</h1>
+  <div id="toolbar">
+    <!-- блоки -->
+    <button onclick="setBlock('grass')">Трава</button>
+    <button onclick="setBlock('stone')">Камінь</button>
+    <button onclick="setBlock('water')">Вода</button>
+    <button onclick="setBlock('lava')">Лава</button>
+    <button onclick="setBlock('sand')">Пісок</button>
+    <button onclick="setBlock('gold')">Золото</button>
+    <button onclick="setBlock('tree')">Дерево</button>
+    <!-- персонажі -->
+    <button onclick="setBlock('hero')">Герой 🦸</button>
+    <button onclick="setBlock('monster')">Монстр 👹</button>
+    <button onclick="setBlock('cat')">Кіт 🐱</button>
+    <button onclick="setBlock('robot')">Робот 🤖</button>
+  </div>
+  <div id="game"></div>
+
+  <script>
+    const game = document.getElementById("game");
+    let currentBlock = "grass";
+
+    function setBlock(type) {
+      currentBlock = type;
+    }
+
+    for (let i = 0; i < 400; i++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      cell.onclick = () => {
+        cell.className = "cell " + currentBlock;
+      };
+      game.appendChild(cell);
+    }
+  </script>
+</body>
+</html>
