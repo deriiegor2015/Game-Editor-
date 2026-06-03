@@ -60,5 +60,15 @@
       game.appendChild(cell);
     }
   </script>
+  <style>
+  body { font-family: Arial; background:#222; color:#fff; margin:0; }
+  #toolbar { display:flex; overflow-x:auto; background:#333; padding:10px; }
+  #toolbar button { flex:0 0 auto; margin:5px; padding:10px; font-size:14px; }
+  #game { display:grid; grid-template-columns:repeat(10,30px); margin:10px auto; width:300px; }
+  .cell { width:30px; height:30px; border:1px solid #555; }
+  .grass { background:green; }
+  .stone { background:gray; }
+  .hero { background:url('https://emojiapi.dev/api/v1/man_superhero/64.png') center/cover; }
+</style>
 </body>
 </html>
